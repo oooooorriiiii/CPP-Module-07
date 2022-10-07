@@ -10,8 +10,7 @@
 template<typename T>
 class Array {
  public:
-  Array();
-  Array(unsigned int n);
+  Array(unsigned int n = 0);
   Array(const Array &array);
   Array &operator=(const Array &array);
   ~Array();
