@@ -29,8 +29,30 @@ Array<T>::~Array() {
 }
 
 template<typename T>
-T &Array<T>::operator[](const size_t index) const throw(std::exception) {
-  if (index < 0 || index >= _n)
+T &Array<T>::operator[](unsigned int index) {
+  if (index >= _n)
     throw std::out_of_range("Index is out of range");
   return _arr[index];
+}
+
+template<typename T>
+const T &Array<T>::operator[](unsigned int index) const {
+  if (index >= _n)
+    throw std::out_of_range("Index is out of range");
+  return _arr[index];
+}
+
+template<typename T>
+unsigned int  Array<T>::size() const {
+  return getN();
+}
+
+
+/*
+ * Getter
+ */
+
+template<typename T>
+unsigned int  Array<T>::getN() const {
+  return _n;
 }

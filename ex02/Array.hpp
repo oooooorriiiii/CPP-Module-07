@@ -15,10 +15,16 @@ class Array {
   Array &operator=(const Array &rhs);
   ~Array();
 
-  T &operator[](const size_t index) const throw(std::exception);
+  T &operator[](unsigned int index);
+  const T &operator[](unsigned int index) const;
+
+  unsigned int  size() const;
+
+  unsigned int  getN() const;
+
  private:
-  T *_arr;
   unsigned int _n;
+  T *_arr;
 };
 
 #endif //EX02_ARRAY_HPP
