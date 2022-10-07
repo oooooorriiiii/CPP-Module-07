@@ -10,7 +10,7 @@
 #define MAX_VAL 750
 
 
-int test(std::string testName) {
+int testHeader(std::string testName) {
   std::cout << "+++++TEST+++++" << std::endl;
   std::cout << testName << std::endl;
   std::cout << "++++++++++++++" << std::endl;
@@ -20,7 +20,7 @@ int test(std::string testName) {
 
 int main() {
   {
-    test("Subject main.cpp");
+    testHeader("Subject main.cpp");
     Array<int> numbers(MAX_VAL);
     int* mirror = new int[MAX_VAL];
     srand(time(NULL));
@@ -68,18 +68,11 @@ int main() {
     delete [] mirror;//
   }
   {
-    test("subject test");
-
+    testHeader("size()");
     Array<int> arrInt(5);
-    try {
-      for (int i = 0; i < 5; i++)
-        arrInt[i] = i;
-      for (int i = 0; i < 5; i++)
-        std::cout << arrInt[i] << std::endl;
-    }
-    catch (const std::exception &e) {
-      std::cerr << e.what() << std::endl;
-    }
+    std::cout << "arrInt.size(): " << arrInt.size() << std::endl;
+    Array<int> arrIntMAXVAL(MAX_VAL);
+    std::cout << "arrIntMAXVAL.size(): " << arrIntMAXVAL.size() << std::endl;
   }
 
   return 0;
