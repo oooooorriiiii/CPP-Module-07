@@ -8,9 +8,9 @@
 #include <iostream>
 
 template<typename T>
-void iter(T* arr, std::size_t arrLen, void (func)(T&)) {
-	for (std::size_t i = 0; i < arrLen; i++)
-		func(arr[i]);
+void iter(T *arr, std::size_t arrLen, void (func)(T &)) {
+  for (std::size_t i = 0; i < arrLen; i++)
+    func(arr[i]);
 }
 
 #endif //EX01_ITER_HPP
