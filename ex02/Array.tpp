@@ -1,20 +1,25 @@
 #include "Array.hpp"
 
 template<typename T>
-Array<T>::Array(unsigned int n) : _arr(new T[n]), _n(n) {}
+Array<T>::Array(unsigned int n) :  _n(n), _arr(new T[_n]) {}
 
 template<typename T>
-Array<T>::Array(const Array<T> &array) {
-  *this = array;
+Array<T>::Array(const Array &array) : _n(array._n), _arr(new T[array._n]) {
+  for (unsigned int i = 0; i < _n; i++) {
+    _arr[i] = array._arr[i];
+  }
 }
 
 template<typename T>
-Array<T> &Array<T>::operator=(const Array<T> &array) {
+Array<T> &Array<T>::operator=(const Array<T> &rhs) {
+  if (this == &rhs) {
+    return *this;
+  }
   delete[] _arr;
-  _n = array._n;
+  _n = rhs._n;
   _arr = new T[_n];
   for (size_t i = 0; i < _n; i++)
-    _arr[i] = array._arr[i];
+    _arr[i] = rhs._arr[i];
   return *this;
 }
 

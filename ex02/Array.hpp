@@ -12,7 +12,7 @@ class Array {
  public:
   Array(unsigned int n = 0);
   Array(const Array &array);
-  Array &operator=(const Array &array);
+  Array &operator=(const Array &rhs);
   ~Array();
 
   T &operator[](const size_t index) const throw(std::exception);
